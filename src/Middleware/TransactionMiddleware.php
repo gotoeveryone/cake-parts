@@ -2,8 +2,8 @@
 
 namespace Gotoeveryone\Middleware;
 
-use Psr\Http\Message\ResponseInterface as Request;
-use Psr\Http\Message\ServerRequestInterface as Response;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use Cake\Datasource\ConnectionManager;
 use Cake\Log\Log;
 
