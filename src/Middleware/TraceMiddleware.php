@@ -26,9 +26,9 @@ class TraceMiddleware
         $action = $request->getParam('action');
         $message = "${url} (${controller}@${action})";
 
-        Log::info("${message} - Start");
+        Log::debug("${message} - Start");
         $response = $next($request, $response);
-        Log::info("${message} - End");
+        Log::debug("${message} - End");
 
         return $response;
     }
