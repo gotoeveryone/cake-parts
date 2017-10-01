@@ -22,22 +22,15 @@ class TransactionMiddleware
      */
     public function __invoke(Request $request, Response $response, $next)
     {
-        // プラグインのリクエストなら後続処理へ
-        $params = (array) $request->getAttribute('params', []);
-        if (isset($params['plugin'])) {
-            return $next($request, $response);
-        }
-
         $conn = ConnectionManager::get('default');
-
         return $conn->enableSavePoints(true)
             ->transactional(function($conn) use ($request, $response, $next) {
                 try {
                     $res = $next($request, $response);
-                    Log::debug('トランザクションをコミットします。');
+                    Log::debug('Commit the transaction.');
                     return $res;
                 } catch (Exception $e) {
-                    Log::error('トランザクションをロールバックします。');
+                    Log::error('Error! Rollback the transaction...');
                     throw $e;
                 }
             });
