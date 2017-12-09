@@ -1,18 +1,20 @@
 <?php
-
+/**
+ * @since       0.0.5
+ * @license     https://raw.githubusercontent.com/gotoeveryone/cake-parts/master/LICENSE MIT License
+ */
 namespace Gotoeveryone\Validation;
 
 /**
- * カスタムのバリデーション
- * バリデーションクラスに組み込んで利用します。
+ * Custom validation.
  */
 trait CustomValidationTrait
 {
     /**
-     * マルチバイト文字への対応
+     * Invalid multibyte value too.
      *
      * @static
-     * @param $check
+     * @param mixed $check
      */
     public static function alphaNumeric($check)
     {

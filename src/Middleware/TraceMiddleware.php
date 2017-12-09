@@ -1,6 +1,6 @@
 <?php
 /**
- * @since       0.0.1
+ * @since       0.0.5
  * @license     https://raw.githubusercontent.com/gotoeveryone/cake-parts/master/LICENSE MIT License
  */
 namespace Gotoeveryone\Middleware;
