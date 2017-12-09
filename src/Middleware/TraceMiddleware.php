@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * @since       0.0.1
+ * @license     https://raw.githubusercontent.com/gotoeveryone/cake-parts/master/LICENSE MIT License
+ */
 namespace Gotoeveryone\Middleware;
 
 use Psr\Http\Message\ResponseInterface as Response;
@@ -7,16 +10,16 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Cake\Log\Log;
 
 /**
- * アクションへのアクセスを記録します。
+ * Recording access to action.
  */
 class TraceMiddleware
 {
     /**
-     * ミドルウェアの実行メソッド
+     * Invoke this middleware.
      *
-     * @param Psr\Http\Message\ServerRequestInterface $request
-     * @param Psr\Http\Message\ResponseInterface $response
-     * @param callable $next
+     * @param Psr\Http\Message\ServerRequestInterface $request HTTP reqeust
+     * @param Psr\Http\Message\ResponseInterface $response HTTP response
+     * @param callable $next Next function
      * @return Psr\Http\Message\ResponseInterface
      */
     public function __invoke(Request $request, Response $response, $next)
