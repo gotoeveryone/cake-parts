@@ -27,21 +27,17 @@ class TransactionMiddleware
     {
         $conn = ConnectionManager::get('default');
 
-        // If can use save point, enabled it.
-        if ($conn->isSavePointsEnabled()) {
-            $conn = $conn->enableSavePoints(true);
-        }
+        return $conn->enableSavePoints(true)
+            ->transactional(function ($conn) use ($request, $response, $next) {
+                try {
+                    $res = $next($request, $response);
+                    Log::debug('Commit the transaction.');
 
-        return $conn->transactional(function ($conn) use ($request, $response, $next) {
-            try {
-                $res = $next($request, $response);
-                Log::debug('Commit the transaction.');
-
-                return $res;
-            } catch (Exception $e) {
-                Log::error('Error! Rollback the transaction...');
-                throw $e;
-            }
-        });
+                    return $res;
+                } catch (Exception $e) {
+                    Log::error('Error! Rollback the transaction...');
+                    throw $e;
+                }
+            });
     }
 }
