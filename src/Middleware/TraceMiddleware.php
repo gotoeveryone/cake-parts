@@ -5,9 +5,9 @@
  */
 namespace Gotoeveryone\Middleware;
 
+use Cake\Log\Log;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use Cake\Log\Log;
 
 /**
  * Recording access to action.

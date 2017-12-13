@@ -6,9 +6,11 @@
 namespace Gotoeveryone\Middleware;
 
 use Cake\Datasource\ConnectionManager;
+use Cake\Error\PHP7ErrorException;
 use Cake\Log\Log;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use Throwable;
 
 /**
  * Manage transaction at application request unit.
@@ -34,6 +36,9 @@ class TransactionMiddleware
                     Log::debug('Commit the transaction.');
 
                     return $res;
+                } catch (Throwable $e) {
+                    Log::error('Error! Rollback the transaction...');
+                    throw new PHP7ErrorException($e);
                 } catch (Exception $e) {
                     Log::error('Error! Rollback the transaction...');
                     throw $e;

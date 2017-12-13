@@ -14,10 +14,11 @@ trait CustomValidationTrait
      * Invalid multibyte value too.
      *
      * @static
-     * @param mixed $check
+     * @param mixed $check check value
+     * @return bool check result
      */
     public static function alphaNumeric($check)
     {
-        return (bool) preg_match('/^[a-zA-Z0-9\(\)\'\-\s]+$/', $check);
+        return (bool)preg_match('/^[a-zA-Z0-9\(\)\'\-\s]+$/', $check);
     }
 }
