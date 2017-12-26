@@ -21,7 +21,7 @@ public function middleware($middlewareQueue)
     // Add to middlewareQueue.
     $middlewareQueue
         ->add(new TraceMiddleware())
-        ->add(new TransactionMiddleware());
+        ->add(new TransactionMiddleware('connection name'));
 
     return $middlewareQueue;
 }
@@ -36,10 +36,12 @@ use Gotoeveryone\Middleware\TransactionMiddleware;
 Router::scope('/', function ($routes) {
     // Register middleware
     $routes->registerMiddleware('trace', new TraceMiddleware())
-        ->registerMiddleware('transaction', new TransactionMiddleware())
+        ->registerMiddleware('transaction', new TransactionMiddleware('connection name'))
         ->applyMiddleware('trace', 'transaction');
 });
 ```
+
+When `connection name` is not specified to `TransactionMiddleware` constructor argument, using `default`.
 
 ### Other
 

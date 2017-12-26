@@ -18,6 +18,23 @@ use Throwable;
 class TransactionMiddleware
 {
     /**
+     * Connection name
+     *
+     * @var string
+     */
+    private $__name = '';
+
+    /**
+     * Constructor
+     *
+     * @param string $name Connection name
+     */
+    public function __construct($name = 'default')
+    {
+        $this->__name = $name;
+    }
+
+    /**
      * Invoke this middleware.
      *
      * @param Psr\Http\Message\ServerRequestInterface $request HTTP reqeust
@@ -27,7 +44,7 @@ class TransactionMiddleware
      */
     public function __invoke(Request $request, Response $response, $next)
     {
-        $conn = ConnectionManager::get('default');
+        $conn = ConnectionManager::get($this->__name);
 
         return $conn->enableSavePoints(true)
             ->transactional(function ($conn) use ($request, $response, $next) {
