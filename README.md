@@ -1,5 +1,10 @@
 # CakePHP's development tools.
 
+### Requirements
+
+- PHP 5.6+
+- CakePHP 3.x
+
 ### Getting Started
 
 #### Installing
