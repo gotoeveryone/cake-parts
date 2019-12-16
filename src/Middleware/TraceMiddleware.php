@@ -5,9 +5,9 @@
  */
 namespace Gotoeveryone\Middleware;
 
-use Cake\Log\Log;
 use Cake\Http\Response;
 use Cake\Http\ServerRequest as Request;
+use Cake\Log\Log;
 
 /**
  * Recording access to action.
@@ -17,7 +17,7 @@ class TraceMiddleware
     /**
      * Invoke this middleware.
      *
-     * @param Cake\Http\ServerRequest $request HTTP reqeust
+     * @param Cake\Http\ServerRequest $request HTTP request
      * @param Cake\Http\Response $response HTTP response
      * @param callable $next Next function
      * @return Cake\Http\Response
