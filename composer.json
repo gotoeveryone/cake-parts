@@ -1,24 +1,24 @@
 {
-    "name": "gotoeveryone/cake-parts",
-    "description": "Custom parts using CakePHP3",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Kazuki Kamizuru",
-            "email": "webmaster@k2ss.info"
-        }
-    ],
-    "require": {
-        "php": ">=5.6.0",
-        "cakephp/cakephp": "~3.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Gotoeveryone\\": "src"
-        }
-    },
-    "require-dev": {
-        "cakephp/cakephp-codesniffer": "^3.0"
+  "name": "gotoeveryone/cake-parts",
+  "description": "Custom parts using CakePHP3+",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Kazuki Kamizuru",
+      "email": "webmaster@k2ss.info"
     }
+  ],
+  "require": {
+    "php": ">=5.6.0",
+    "cakephp/cakephp": ">=3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Gotoeveryone\\": "src"
+    }
+  },
+  "require-dev": {
+    "cakephp/cakephp-codesniffer": ">=3.0"
+  }
 }
